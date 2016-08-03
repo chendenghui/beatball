@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+<canvas id="php100" width="500" height="200"></canvas>
+<div id="ds"></div>
+<script type="text/javascript">
+    var canvas = document.getElementById("php100");
+    var p100 = canvas.getContext("2d");
+    var dir = 100;
+    var height = 500;
+    var width = 300;
+    var exp = 1;//像素移动的位置
+    function fff()
+    {
+        p100.clearRect(0,0,height,width);//清除上一次的痕迹
+        p100.fillStyle = "red";
+        p100.beginPath();
+        p100.arc(190, dir, 20, 0, Math.PI * 2, 1);
+        p100.closePath();
+        p100.fill();
+        dir = dir + exp;
+        if(dir==0||dir==height)
+        {
+            exp = exp * -1;
+        }
+    }
+
+</script>
+<button onclick="tt=setInterval(fff,10);">开始</button>
+<button onclick="clearInterval(tt);" >停止</button>
+</body>
+</html>
